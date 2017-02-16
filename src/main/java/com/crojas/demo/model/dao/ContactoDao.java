@@ -21,10 +21,11 @@ public class ContactoDao implements IContactoDao {
 
 	@Override
 	public Contacto findOne( Integer id ) {
-		return null;
+		return em.find( Contacto.class, id );
 	}
 	
-	@SuppressWarnings("unchecked")
+	
+	@SuppressWarnings( "unchecked" )
 	@Override
 	public List<Contacto> findAll() {
 		Query query = em.createQuery( "SELECT c FROM Contacto c" );
@@ -32,27 +33,29 @@ public class ContactoDao implements IContactoDao {
 		return contactos;
 	}
 	
+	
 	@Override
 	public void create( Contacto entity ) {
 		em.persist( entity );
 	}
 	
-	@Override
-	public Contacto update(Contacto entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	@Override
-	public void delete(Contacto entity) {
-		// TODO Auto-generated method stub
-
+	public Contacto update( Contacto entity ) {
+		return em.merge( entity );
 	}
 	
+	
 	@Override
-	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
-
+	public void delete( Contacto entity ) {
+		em.remove( entity );
 	}
+	
+	
+	@Override
+	public void deleteById( Integer id ) {
+		em.remove( em.find( Contacto.class, id ) );
+	}
+	
 	
 }

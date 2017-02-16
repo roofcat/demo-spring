@@ -17,13 +17,33 @@ public class ContactoService {
 	private ContactoDao dao;
 	
 	@Transactional
-	public void create( Contacto contacto ) {
-		dao.create( contacto );
+	public Contacto findOne( Integer id ) {
+		return dao.findOne( id );
 	}
 	
 	@Transactional
 	public List<Contacto> findAll() {
 		return dao.findAll();
+	}
+	
+	@Transactional
+	public void create( Contacto contacto ) {
+		dao.create( contacto );
+	}
+	
+	@Transactional
+	public Contacto update( Contacto contacto ) {
+		return dao.update( contacto );
+	}
+	
+	@Transactional
+	public void delete( Contacto contacto ) {
+		dao.delete( contacto );
+	}
+	
+	@Transactional
+	public void deleteById( Integer id ) {
+		dao.deleteById( id );
 	}
 	
 }
