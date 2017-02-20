@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crojas.demo.model.entities.Contacto;
@@ -26,8 +26,7 @@ public class HomeController {
 	
 	
 	@RequestMapping(method=RequestMethod.GET)
-	@ResponseBody
-	public ResponseEntity<List<Contacto>> showIndex() {
+	public ResponseEntity< List< Contacto > > showIndex() {
 		
 		Contacto contacto = new Contacto();
 		contacto.setFecha( new Date() );
@@ -39,12 +38,29 @@ public class HomeController {
 		
 		List<Contacto> contactos = cs.findAll();
 		
-		return new ResponseEntity<List<Contacto>>( contactos, HttpStatus.OK );
+		return new ResponseEntity< List< Contacto > >( contactos, HttpStatus.OK );
+		
+	}
+	
+	@RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity< Contacto > createContact( @RequestBody Contacto contacto ) {
+		
+		try {
+			
+			cs.create( contacto );
+			
+			return new ResponseEntity<Contacto>( contacto, HttpStatus.OK );
+			
+		} catch ( Exception e ) {
+			
+			return new ResponseEntity<Contacto>( HttpStatus.BAD_REQUEST );
+			
+		}
 		
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<Contacto> showContact( @PathVariable Integer id  ) {
+	public ResponseEntity< Contacto > showContact( @PathVariable Integer id  ) {
 		
 		Contacto contacto = null;
 		
@@ -52,11 +68,11 @@ public class HomeController {
 		
 		if ( contacto == null ) {
 			
-			return new ResponseEntity<Contacto>( HttpStatus.NOT_FOUND );
+			return new ResponseEntity< Contacto >( HttpStatus.NOT_FOUND );
 			
 		} else {
 			
-			return new ResponseEntity<Contacto>( contacto, HttpStatus.OK );
+			return new ResponseEntity< Contacto >( contacto, HttpStatus.OK );
 			
 		}
 		
