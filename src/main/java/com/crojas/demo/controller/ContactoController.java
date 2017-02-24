@@ -18,7 +18,7 @@ import com.crojas.demo.model.service.ContactoService;
 
 @RestController
 @RequestMapping(value="/contacto")
-public class HomeController {
+public class ContactoController {
 	
 	
 	@Autowired
