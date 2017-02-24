@@ -1,6 +1,6 @@
 package com.crojas.demo.model.dao;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,9 +27,9 @@ public class ContactoDao implements IContactoDao {
 	
 	@SuppressWarnings( "unchecked" )
 	@Override
-	public List<Contacto> findAll() {
+	public Collection<Contacto> findAll() {
 		Query query = em.createQuery( "SELECT c FROM Contacto c" );
-		List<Contacto> contactos = query.getResultList();
+		Collection<Contacto> contactos = query.getResultList();
 		return contactos;
 	}
 	

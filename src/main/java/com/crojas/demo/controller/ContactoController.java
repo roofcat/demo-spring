@@ -1,7 +1,7 @@
 package com.crojas.demo.controller;
 
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ public class ContactoController {
 	
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity< List< Contacto > > showIndex() {
+	public ResponseEntity< Collection< Contacto > > showIndex() {
 		
 		Contacto contacto = new Contacto();
 		contacto.setFecha( new Date() );
@@ -36,9 +36,9 @@ public class ContactoController {
 		
 		cs.create( contacto );
 		
-		List<Contacto> contactos = cs.findAll();
+		Collection<Contacto> contactos = cs.findAll();
 		
-		return new ResponseEntity< List< Contacto > >( contactos, HttpStatus.OK );
+		return new ResponseEntity< Collection< Contacto > >( contactos, HttpStatus.OK );
 		
 	}
 	
