@@ -1,6 +1,6 @@
 package com.crojas.demo.model.service;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,7 +22,7 @@ public class ContactoService {
 	}
 	
 	@Transactional
-	public List<Contacto> findAll() {
+	public Collection<Contacto> findAll() {
 		return dao.findAll();
 	}
 	

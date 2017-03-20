@@ -1,7 +1,7 @@
 package com.crojas.demo.model.dao;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 
 
 public interface IOperations <T extends Serializable> {
@@ -10,7 +10,7 @@ public interface IOperations <T extends Serializable> {
 	public T findOne( final Integer id );
 	
 	
-	public List<T> findAll();
+	public Collection<T> findAll();
 	
 	
 	public void create( final T entity );
