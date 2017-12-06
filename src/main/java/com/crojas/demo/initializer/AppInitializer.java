@@ -16,7 +16,7 @@ import com.crojas.demo.config.AppConfig;
 public class AppInitializer implements WebApplicationInitializer {
 	
 	
-	private static final String MAPPING_URL = "/*";
+	private static final String MAPPING_URL = "/";
 	
 	
 	@Override

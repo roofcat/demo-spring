@@ -17,7 +17,7 @@ import com.crojas.demo.model.service.ContactoService;
 
 
 @RestController
-@RequestMapping(value="/contacto")
+@RequestMapping(value = "/contacto")
 public class ContactoController {
 	
 	
@@ -25,8 +25,8 @@ public class ContactoController {
 	private ContactoService cs;
 	
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity< Collection< Contacto > > showIndex() {
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<Collection<Contacto>> showIndex() {
 		
 		Contacto contacto = new Contacto();
 		contacto.setFecha( new Date() );
@@ -38,7 +38,7 @@ public class ContactoController {
 		
 		Collection<Contacto> contactos = cs.findAll();
 		
-		return new ResponseEntity< Collection< Contacto > >( contactos, HttpStatus.OK );
+		return new ResponseEntity<Collection<Contacto>>( contactos, HttpStatus.OK );
 		
 	}
 	
