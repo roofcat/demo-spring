@@ -13,8 +13,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.crojas.demo.config.common.ColumnPosition;
-
 
 @Entity
 @Table(name="DEMO_CONTACTO")
@@ -24,7 +22,6 @@ public class Contacto implements Serializable {
 	private static final long serialVersionUID = -6744255850429201769L;
 	
 	
-	@ColumnPosition(position = 0)
 	@SequenceGenerator(name = "SEQ_CONTACTO_ID", sequenceName = "SEQ_CONTACTO", allocationSize = 1, initialValue = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_CONTACTO_ID")
 	@Id
@@ -32,23 +29,19 @@ public class Contacto implements Serializable {
 	private Integer id;
 	
 	
-	@ColumnPosition(position = 1)
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "FECHA", nullable = false)
 	private Date fecha;
 	
 	
-	@ColumnPosition(position = 2)
 	@Column(name = "NOMBRE", nullable = false)
 	private String nombre;
 	
 	
-	@ColumnPosition(position=3)
 	@Column(name="CORREO", nullable=false)
 	private String correo;
 	
 	
-	@ColumnPosition(position = 4)
 	@Column(name = "MENSAJE", nullable = false)
 	private String mensaje;
 	

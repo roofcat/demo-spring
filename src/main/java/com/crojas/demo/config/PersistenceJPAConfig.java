@@ -20,12 +20,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class PersistenceJPAConfig {
 	
 	
-	private String[] packages = {"com.crojas.demo.model.entities"};
+	private String[] packages = { "com.crojas.demo.model.entities" };
 	
 	
 	public PersistenceJPAConfig() {
 		super();
 	}
+	
 	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -47,6 +48,7 @@ public class PersistenceJPAConfig {
 		
 	}
 	
+	
 	@Bean
 	public JpaTransactionManager transactionManager( EntityManagerFactory entityManagerFactory ) {
 		
@@ -55,6 +57,7 @@ public class PersistenceJPAConfig {
 		return transactionManager;
 		
 	}
+	
 	
 	@Bean
 	public DataSource dataSource() {
@@ -68,11 +71,13 @@ public class PersistenceJPAConfig {
 		
 	}
 	
+	
 	@Bean
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 		
 		return new PersistenceExceptionTranslationPostProcessor();
 		
 	}
+	
 	
 }

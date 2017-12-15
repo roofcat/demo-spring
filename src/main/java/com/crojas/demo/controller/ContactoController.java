@@ -42,6 +42,7 @@ public class ContactoController {
 		
 	}
 	
+	
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity< Contacto > createContact( @RequestBody Contacto contacto ) {
 		
@@ -58,6 +59,7 @@ public class ContactoController {
 		}
 		
 	}
+	
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity< Contacto > showContact( @PathVariable Integer id  ) {
@@ -77,5 +79,6 @@ public class ContactoController {
 		}
 		
 	}
+	
 	
 }
